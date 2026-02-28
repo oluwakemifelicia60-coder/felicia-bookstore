@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Felicia Adebayo – Books That Change You</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet"/>
+<style>
+:root{--gold:#C9A84C;--gold-light:#E8C97A;--gold-dim:#7a6230;--black:#080808;--dark:#101010;--dark2:#181818;--dark3:#252525;--white:#F5F0E8;--red:#c0392b}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:-300% center}100%{background-position:300% center}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.4)}50%{box-shadow:0 0 0 14px rgba(201,168,76,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:400;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(8,8,8,.97),transparent);backdrop-filter:blur(6px)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);letter-spacing:.06em;cursor:pointer;user-select:none}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(245,240,232,.65);text-decoration:none;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-order-btn{background:var(--gold);color:#080808;padding:9px 22px;border-radius:2px;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:opacity .2s}
+.nav-order-btn:hover{opacity:.85}
+@media(max-width:600px){.nav-links{display:none}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 6% 80px;background:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(201,168,76,.07) 0%,transparent 70%),linear-gradient(180deg,#080808 0%,#0d0b06 100%);position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.3),transparent)}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;animation:fadeUp .8s ease both}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,7vw,5.2rem);font-weight:900;line-height:1.07;margin-bottom:22px;background:linear-gradient(135deg,#f5e8c0 0%,var(--gold) 35%,#fff8e7 55%,var(--gold-light) 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite,fadeUp .9s ease .15s both}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.05rem,2.4vw,1.45rem);color:rgba(245,240,232,.65);max-width:580px;margin:0 auto 14px;line-height:1.65;animation:fadeUp .9s ease .25s both}
+.hero-sub{font-size:.85rem;opacity:.45;letter-spacing:.05em;margin-bottom:40px;animation:fadeUp .9s ease .35s both}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;animation:fadeUp .9s ease .45s both}
+.hero-cta{display:inline-block;background:linear-gradient(135deg,var(--gold-dim),var(--gold),var(--gold-light));color:#080808;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:17px 44px;border-radius:2px;text-decoration:none;animation:pulse 2.8s ease infinite;transition:transform .2s}
+.hero-cta:hover{transform:translateY(-2px)}
+.hero-cta-ghost{display:inline-block;border:1px solid rgba(201,168,76,.4);color:var(--gold);font-weight:500;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding:17px 36px;border-radius:2px;text-decoration:none;transition:all .25s}
+.hero-cta-ghost:hover{border-color:var(--gold);background:rgba(201,168,76,.07)}
+.hero-trust{margin-top:56px;display:flex;gap:36px;flex-wrap:wrap;justify-content:center;animation:fadeUp .9s ease .55s both}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:.78rem;opacity:.55}
+
+/* COUNTDOWN */
+.countdown-wrap{background:var(--dark2);border:1px solid rgba(201,168,76,.18);border-radius:4px;padding:24px 36px;margin-top:40px;text-align:center;animation:fadeUp .9s ease .65s both;display:none}
+.countdown-label{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.countdown-offer{font-size:.82rem;opacity:.6;margin-bottom:16px}
+.countdown-timer{display:flex;gap:20px;justify-content:center;align-items:center}
+.countdown-unit{text-align:center}
+.countdown-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--gold-light);line-height:1;display:block;min-width:56px}
+.countdown-uname{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;opacity:.5;margin-top:4px}
+.countdown-sep{font-size:2rem;color:var(--gold-dim);opacity:.5;padding-bottom:12px}
+
+/* TRUST BAR */
+.trust-bar{background:var(--dark2);border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1);padding:24px 5%;display:flex;justify-content:center;gap:52px;flex-wrap:wrap}
+.tbadge{display:flex;align-items:center;gap:10px;font-size:.78rem;opacity:.55}
+.tbadge-icon{font-size:1.2rem}
+
+/* SECTIONS */
+section{padding:90px 6%}
+.sec-label{font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:14px}
+.sec-line{width:52px;height:2px;background:linear-gradient(to right,var(--gold),transparent);margin-bottom:48px}
+.inner{max-width:1080px;margin:0 auto}
+
+/* TABS */
+.genre-tabs{display:flex;margin-bottom:48px;border-bottom:1px solid rgba(201,168,76,.15);flex-wrap:wrap}
+.tab-btn{background:none;border:none;cursor:pointer;padding:13px 32px;font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.45);position:relative;transition:color .25s}
+.tab-btn.active{color:var(--gold)}
+.tab-btn.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}
+.tab-btn:hover{color:var(--white)}
+.tab-content{display:none}
+.tab-content.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px}
+
+/* BOOK CARD */
+.book-card{background:var(--dark2);border:1px solid rgba(201,168,76,.1);border-radius:4px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:pointer;display:flex;flex-direction:column}
+.book-card:hover{transform:translateY(-6px);box-shadow:0 20px 55px rgba(0,0,0,.55);border-color:rgba(201,168,76,.3)}
+.book-cover{width:100%;aspect-ratio:3/4;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:24px 20px}
+.book-cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.book-cover-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4.5rem;background:linear-gradient(160deg,#1a1200,#3d2b00 60%,#1a0f00)}
+.book-cover-fallback.romance{background:linear-gradient(160deg,#1a0012,#3d0025 60%,#0f000e)}
+.book-cover-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.1) 60%,transparent 100%);z-index:2}
+.book-cover-pattern{position:absolute;inset:0;opacity:.05;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:18px 18px;z-index:0}
+.book-badge{position:absolute;top:14px;left:14px;background:var(--gold);color:#080808;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:1px;z-index:3}
+.book-discount-badge{position:absolute;top:14px;right:14px;background:var(--red);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:1px;z-index:3}
+.book-title-cover{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;line-height:1.2;color:var(--white);z-index:3;position:relative}
+.book-author-cover{font-size:.72rem;letter-spacing:.1em;color:var(--gold-light);margin-top:6px;z-index:3;position:relative}
+.book-info{padding:22px;flex:1;display:flex;flex-direction:column}
+.book-desc{font-size:.85rem;line-height:1.72;color:rgba(245,240,232,.6);margin-bottom:18px;flex:1}
+.book-meta{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.book-price{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);font-weight:700;line-height:1}
+.book-price-old{font-size:.78rem;opacity:.45;text-decoration:line-through;margin-top:2px}
+.book-price-note{font-size:.7rem;opacity:.45;margin-top:2px}
+.buy-btn{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px 18px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .25s;border-radius:2px;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.buy-btn:hover{background:var(--gold);color:#080808}
+.stars{color:var(--gold);font-size:.85rem;margin-bottom:12px}
+.no-books-msg{grid-column:1/-1;text-align:center;padding:60px 0;opacity:.4;font-family:'Playfair Display',serif;font-size:1.1rem}
+
+/* ORDER MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--dark2);border:1px solid rgba(201,168,76,.2);border-radius:6px;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(30px);transition:transform .3s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:16px;right:18px;background:none;border:none;color:rgba(245,240,232,.45);font-size:1.5rem;cursor:pointer;z-index:2;transition:color .2s}
+.modal-close:hover{color:var(--white)}
+.modal-step{padding:40px 36px}
+@media(max-width:480px){.modal-step{padding:28px 20px}}
+.modal-book-info{display:flex;align-items:center;gap:16px;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.12);border-radius:3px;padding:16px;margin-bottom:28px}
+.modal-book-thumb{width:52px;height:68px;border-radius:2px;flex-shrink:0;background:linear-gradient(135deg,var(--dark3),var(--gold-dim));display:flex;align-items:center;justify-content:center;font-size:1.6rem;overflow:hidden}
+.modal-book-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold-light);margin-bottom:4px}
+.modal-book-genre{font-size:.72rem;opacity:.5;letter-spacing:.08em;text-transform:uppercase}
+.modal-book-price{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);font-weight:700;margin-top:4px}
+.modal-step h2{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:6px}
+.modal-step .sub{font-size:.83rem;opacity:.5;margin-bottom:28px;line-height:1.6}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.9;margin-bottom:7px}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);border-radius:2px;padding:13px 15px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group select option{background:#181818}
+.form-group textarea{resize:vertical;min-height:80px}
+.contact-toggle{display:flex;margin-bottom:14px;border:1px solid rgba(201,168,76,.2);border-radius:2px;overflow:hidden}
+.contact-toggle button{flex:1;padding:10px;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,240,232,.45);transition:all .2s}
+.contact-toggle button.active{background:rgba(201,168,76,.15);color:var(--gold)}
+.submit-btn{width:100%;background:linear-gradient(135deg,var(--gold-dim),var(--gold),var(--gold-light));border:none;color:#080808;padding:16px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:opacity .2s,transform .2s;margin-top:8px}
+.submit-btn:hover{opacity:.88;transform:translateY(-1px)}
+.form-note{font-size:.75rem;opacity:.4;margin-top:14px;text-align:center;line-height:1.6}
+.step2-header{text-align:center;padding:36px 36px 0}
+.step2-header h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold-light);margin-bottom:8px}
+.step2-header p{font-size:.85rem;opacity:.55;line-height:1.65}
+.step2-body{padding:28px 36px 40px}
+@media(max-width:480px){.step2-header,.step2-body{padding-left:20px;padding-right:20px}}
+.step2-summary{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15);border-radius:3px;padding:18px 20px;margin-bottom:28px}
+.step2-summary .row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:.88rem}
+.step2-summary .row:not(:last-child){border-bottom:1px solid rgba(201,168,76,.08)}
+.step2-summary .row .key{opacity:.5;font-size:.8rem}
+.step2-summary .row .val{font-weight:500;text-align:right}
+.pay-section h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold-light);margin-bottom:16px}
+.bank-detail{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.12);border-radius:3px;padding:14px 18px;margin-bottom:10px}
+.bank-detail .lbl{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:4px}
+.bank-detail .val{font-size:1rem;font-weight:700;letter-spacing:.04em}
+.copy-btn{background:none;border:1px solid rgba(201,168,76,.25);color:rgba(201,168,76,.7);padding:4px 10px;border-radius:2px;font-size:.68rem;cursor:pointer;font-family:'DM Sans',sans-serif;margin-left:8px;transition:all .2s;vertical-align:middle}
+.copy-btn:hover{background:rgba(201,168,76,.12);color:var(--gold)}
+.pay-divider{border:none;border-top:1px solid rgba(201,168,76,.1);margin:24px 0}
+.pay-note{background:rgba(201,168,76,.06);border-left:2px solid var(--gold);padding:14px 16px;font-size:.82rem;line-height:1.65;opacity:.75;border-radius:0 2px 2px 0;margin-top:20px}
+.wa-confirm-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:22px;padding:15px;background:#128C7E;border:none;color:#fff;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s;text-decoration:none}
+.wa-confirm-btn:hover{background:#075E54}
+
+/* TESTIMONIALS */
+.testimonials-section{background:var(--dark)}
+.testi-carousel{position:relative;overflow:hidden;margin-top:48px}
+.testi-track{display:flex;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+.testi-slide{min-width:100%;padding:0 4px}
+.testi-inner{background:var(--dark2);border:1px solid rgba(201,168,76,.1);border-radius:4px;padding:36px 40px;position:relative;max-width:700px;margin:0 auto}
+@media(max-width:560px){.testi-inner{padding:28px 22px}}
+.testi-inner::before{content:'"';font-family:'Playfair Display',serif;font-size:6rem;color:var(--gold);opacity:.1;position:absolute;top:6px;left:20px;line-height:1}
+.testi-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;line-height:1.78;color:rgba(245,240,232,.8);margin-bottom:26px;position:relative;z-index:1}
+.testi-author{display:flex;align-items:center;gap:14px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--gold-dim),var(--dark3));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--gold);font-size:1.1rem}
+.testi-name{font-weight:700;font-size:.9rem}
+.testi-loc{font-size:.74rem;opacity:.45;margin-top:2px}
+.testi-stars{color:var(--gold);font-size:.85rem;margin-bottom:14px}
+.testi-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:32px}
+.testi-prev,.testi-next{background:none;border:1px solid rgba(201,168,76,.25);color:var(--gold);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all .25s}
+.testi-prev:hover,.testi-next:hover{background:rgba(201,168,76,.12);border-color:var(--gold)}
+.testi-dots{display:flex;gap:8px;align-items:center}
+.testi-dot{width:7px;height:7px;border-radius:50%;background:rgba(201,168,76,.25);cursor:pointer;transition:all .25s;border:none}
+.testi-dot.active{background:var(--gold);transform:scale(1.25)}
+
+/* HOW */
+.how-section{background:var(--black)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:24px;margin-top:48px}
+.step{background:var(--dark2);border:1px solid rgba(201,168,76,.08);border-radius:4px;padding:32px 26px;transition:border-color .3s}
+.step:hover{border-color:rgba(201,168,76,.22)}
+.step-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:rgba(201,168,76,.1);line-height:1;margin-bottom:14px}
+.step-icon{font-size:1.7rem;margin-bottom:12px}
+.step h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:10px;color:var(--gold-light)}
+.step p{font-size:.83rem;line-height:1.72;opacity:.55}
+
+/* ABOUT */
+.about-section{background:var(--dark)}
+.about-grid{display:grid;grid-template-columns:240px 1fr;gap:60px;align-items:start;max-width:900px;margin:0 auto}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr;gap:32px}}
+.author-image-wrap{animation:float 4.5s ease-in-out infinite}
+.author-image-box{width:220px;height:280px;border-radius:4px;overflow:hidden;border:1px solid rgba(201,168,76,.2);position:relative;background:var(--dark3)}
+@media(max-width:640px){.author-image-box{width:160px;height:210px;margin:0 auto}}
+.author-image-box img{width:100%;height:100%;object-fit:cover}
+.author-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-size:3.5rem;color:rgba(201,168,76,.25);background:repeating-linear-gradient(45deg,rgba(201,168,76,.02) 0,rgba(201,168,76,.02) 1px,transparent 0,transparent 50%);background-size:16px 16px}
+.author-placeholder .upload-hint{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5;font-family:'DM Sans',sans-serif;text-align:center}
+.about-text .sec-title{margin-bottom:10px}
+.author-since{font-size:.78rem;color:var(--gold);opacity:.7;letter-spacing:.1em;margin-bottom:20px}
+.about-text p{font-size:.88rem;line-height:1.85;opacity:.65;margin-bottom:14px}
+
+/* FAQ */
+.faq-section{background:var(--black)}
+.faq-section .inner{max-width:740px}
+.faq-item{border-bottom:1px solid rgba(201,168,76,.1);padding:22px 0;cursor:pointer}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Playfair Display',serif;font-size:.98rem;font-weight:700}
+.faq-icon{color:var(--gold);font-size:1.25rem;transition:transform .3s;flex-shrink:0}
+.faq-a{display:none;padding-top:14px;font-size:.85rem;line-height:1.8;opacity:.6}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-item.open .faq-a{display:block}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:40px 6%;text-align:center}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);margin-bottom:10px}
+footer p{font-size:.78rem;opacity:.35;line-height:1.7}
+.footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.footer-links a{font-size:.75rem;opacity:.45;color:var(--white);text-decoration:none;letter-spacing:.08em;transition:opacity .2s}
+.footer-links a:hover{opacity:.85;color:var(--gold)}
+
+/* STICKY CTA */
+.sticky-cta{position:fixed;bottom:22px;right:22px;z-index:300;background:var(--gold);color:#080808;padding:13px 22px;border-radius:2px;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;box-shadow:0 6px 28px rgba(201,168,76,.4);animation:pulse 2.8s ease infinite;transition:transform .2s}
+.sticky-cta:hover{transform:translateY(-2px)}
+@media(max-width:480px){.sticky-cta{bottom:16px;right:16px;font-size:.72rem;padding:11px 16px}}
+
+/* TOAST */
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--dark3);border:1px solid rgba(201,168,76,.3);color:var(--white);padding:12px 24px;border-radius:3px;font-size:.82rem;opacity:0;pointer-events:none;transition:all .3s;z-index:3000;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ════════════════════════════════
+   ADMIN PANEL STYLES
+   ════════════════════════════════ */
+/* Login Gate */
+.admin-login-overlay{position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;padding:20px;display:none}
+.admin-login-box{background:var(--dark2);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:48px 40px;width:100%;max-width:400px;text-align:center}
+.admin-login-box h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold-light);margin-bottom:8px}
+.admin-login-box p{font-size:.85rem;opacity:.5;margin-bottom:32px;line-height:1.6}
+.admin-login-box input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.25);border-radius:2px;padding:14px 16px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;text-align:center;letter-spacing:.15em;transition:border-color .2s;margin-bottom:16px}
+.admin-login-box input:focus{border-color:var(--gold)}
+.admin-login-btn{width:100%;background:linear-gradient(135deg,var(--gold-dim),var(--gold),var(--gold-light));border:none;color:#080808;padding:15px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:opacity .2s}
+.admin-login-btn:hover{opacity:.88}
+.admin-cancel-btn{background:none;border:none;color:rgba(245,240,232,.35);font-family:'DM Sans',sans-serif;font-size:.8rem;cursor:pointer;margin-top:14px;text-decoration:underline;transition:color .2s}
+.admin-cancel-btn:hover{color:var(--white)}
+.login-error{color:#e74c3c;font-size:.8rem;margin-top:12px;display:none}
+
+/* Admin Bar */
+.admin-bar{position:fixed;top:0;left:0;right:0;z-index:600;background:linear-gradient(135deg,#1a0d00,#2d1800);border-bottom:2px solid var(--gold);padding:10px 24px;display:none;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.admin-bar-left{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.admin-bar .admin-badge{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);padding:5px 12px;border-radius:2px;font-weight:700}
+.admin-bar .admin-btn{background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.25);color:var(--gold-light);padding:8px 16px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.admin-bar .admin-btn:hover{background:rgba(201,168,76,.22);border-color:var(--gold)}
+.admin-bar .admin-btn.danger{border-color:rgba(192,57,43,.4);color:#e74c3c}
+.admin-bar .admin-btn.danger:hover{background:rgba(192,57,43,.15)}
+
+/* Admin Panel Drawer */
+.admin-panel{position:fixed;top:0;right:-100%;width:100%;max-width:700px;height:100vh;overflow-y:auto;z-index:700;background:var(--dark);border-left:1px solid rgba(201,168,76,.2);transition:right .4s cubic-bezier(.25,.46,.45,.94);padding:0}
+.admin-panel.open{right:0}
+.admin-panel-header{background:linear-gradient(135deg,#1a0d00,#2d1800);border-bottom:1px solid rgba(201,168,76,.2);padding:20px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.admin-panel-header h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold-light)}
+.admin-panel-close{background:none;border:1px solid rgba(201,168,76,.3);color:var(--gold);padding:6px 14px;border-radius:2px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.admin-panel-body{padding:28px}
+
+/* Admin Tabs */
+.admin-tabs{display:flex;border-bottom:1px solid rgba(201,168,76,.15);margin-bottom:28px}
+.admin-tab{background:none;border:none;padding:12px 20px;font-family:'DM Sans',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,240,232,.4);cursor:pointer;position:relative;transition:color .2s}
+.admin-tab.active{color:var(--gold)}
+.admin-tab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}
+.admin-tab-content{display:none}
+.admin-tab-content.active{display:block}
+
+/* Admin Form Fields */
+.a-group{margin-bottom:20px}
+.a-group label{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:7px}
+.a-group input,.a-group select,.a-group textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:2px;padding:11px 14px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s}
+.a-group input:focus,.a-group select:focus,.a-group textarea:focus{border-color:var(--gold)}
+.a-group select option{background:#1a1a1a}
+.a-group textarea{resize:vertical;min-height:80px}
+.a-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.a-row{grid-template-columns:1fr}}
+
+/* Admin Save Btn */
+.a-save-btn{background:linear-gradient(135deg,var(--gold-dim),var(--gold),var(--gold-light));border:none;color:#080808;padding:13px 28px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:opacity .2s}
+.a-save-btn:hover{opacity:.88}
+.a-delete-btn{background:none;border:1px solid rgba(192,57,43,.4);color:#e74c3c;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .2s}
+.a-delete-btn:hover{background:rgba(192,57,43,.12)}
+.a-section-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-light);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(201,168,76,.1)}
+.a-card{background:var(--dark2);border:1px solid rgba(201,168,76,.1);border-radius:4px;padding:20px;margin-bottom:16px}
+.a-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px}
+.a-card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white)}
+.a-card-badge{font-size:.68rem;color:var(--gold);background:rgba(201,168,76,.1);padding:3px 8px;border-radius:1px;text-transform:uppercase;letter-spacing:.08em}
+.a-hint{font-size:.75rem;opacity:.4;margin-top:6px;line-height:1.5}
+.a-toggle-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.a-toggle-label{font-size:.82rem;opacity:.7}
+.toggle-switch{position:relative;width:46px;height:26px;cursor:pointer}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{position:absolute;inset:0;background:var(--dark3);border-radius:13px;transition:background .3s;border:1px solid rgba(201,168,76,.2)}
+.toggle-slider::before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:rgba(245,240,232,.4);border-radius:50%;transition:transform .3s}
+.toggle-switch input:checked + .toggle-slider{background:var(--gold-dim)}
+.toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px);background:var(--white)}
+
+/* Image Upload Area */
+.img-upload-area{border:2px dashed rgba(201,168,76,.25);border-radius:4px;padding:28px;text-align:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;margin-bottom:12px}
+.img-upload-area:hover{border-color:rgba(201,168,76,.5);background:rgba(201,168,76,.04)}
+.img-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.img-upload-area .upload-icon{font-size:2rem;margin-bottom:10px}
+.img-upload-area .upload-text{font-size:.82rem;opacity:.55;line-height:1.6}
+.img-upload-area .upload-sub{font-size:.72rem;opacity:.35;margin-top:6px}
+.img-preview-wrap{position:relative;display:inline-block;margin-bottom:12px}
+.img-preview{width:100%;max-height:180px;object-fit:contain;border-radius:3px;border:1px solid rgba(201,168,76,.15)}
+.img-remove-btn{position:absolute;top:-8px;right:-8px;width:24px;height:24px;background:var(--red);border:none;border-radius:50%;color:#fff;font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
+.admin-overlay-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:699;display:none}
+.admin-overlay-bg.show{display:block}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo" id="nav-logo-click">Felicia Adebayo</div>
+  <ul class="nav-links">
+    <li><a href="#books">Books</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#books" class="nav-order-btn">Get a Book</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <p class="hero-eyebrow">✦ Author · Storyteller · Life Changer ✦</p>
+  <h1>One Book. One Decision.<br>A Completely Different Life.</h1>
+  <p class="hero-tagline">From my secondary school notebook to your hands — every page I write is proof that one story, read at the right time, can break chains, heal wounds, and ignite you for your own life.</p>
+  <p class="hero-sub">Self-Help &nbsp;·&nbsp; Romance &nbsp;·&nbsp; More Genres Coming</p>
+  <div class="hero-btns">
+    <a href="#books" class="hero-cta">Browse Books</a>
+    <a href="#about" class="hero-cta-ghost">About Felicia</a>
+  </div>
+  <div class="hero-trust">
+    <div class="trust-item">📖 PDF delivered to you</div>
+    <div class="trust-item">⚡ Same-day delivery</div>
+    <div class="trust-item">⭐ Real Nigerian readers</div>
+    <div class="trust-item">💬 WhatsApp support</div>
+  </div>
+  <div class="countdown-wrap" id="countdown-wrap">
+    <div class="countdown-label" id="cd-label">⏳ Special Offer Ends In</div>
+    <div class="countdown-offer" id="cd-offer"></div>
+    <div class="countdown-timer">
+      <div class="countdown-unit"><span class="countdown-num" id="cd-d">00</span><div class="countdown-uname">Days</div></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-h">00</span><div class="countdown-uname">Hrs</div></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-m">00</span><div class="countdown-uname">Min</div></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-s">00</span><div class="countdown-uname">Sec</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="tbadge"><span class="tbadge-icon">📚</span> Quality Writing</div>
+  <div class="tbadge"><span class="tbadge-icon">⚡</span> Fast Delivery</div>
+  <div class="tbadge"><span class="tbadge-icon">💳</span> UBA &amp; Opay Accepted</div>
+  <div class="tbadge"><span class="tbadge-icon">🛡️</span> Safe &amp; Trusted</div>
+  <div class="tbadge"><span class="tbadge-icon">🇳🇬</span> Proudly Nigerian</div>
+</div>
+
+<!-- BOOKS -->
+<section id="books" style="background:var(--dark)">
+  <div class="inner">
+    <p class="sec-label">The Collection</p>
+    <h2 class="sec-title reveal">Find Your Next Favourite Read</h2>
+    <div class="sec-line"></div>
+    <div class="genre-tabs" id="genre-tabs"></div>
+    <div id="books-container"></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="inner">
+    <p class="sec-label">The Process</p>
+    <h2 class="sec-title reveal">Simple. Fast. Trustworthy.</h2>
+    <div class="sec-line"></div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">01</div><div class="step-icon">📖</div><h3>Choose Your Book</h3><p>Browse by genre and find the title that speaks to where you are in life right now.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><div class="step-icon">📋</div><h3>Fill the Order Form</h3><p>Click any book, enter your name and contact. Payment details are revealed instantly on the next screen.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><div class="step-icon">💳</div><h3>Make Payment</h3><p>Transfer directly to UBA or Opay. Your money goes straight to the author — no middlemen.</p></div>
+      <div class="step reveal"><div class="step-num">04</div><div class="step-icon">📩</div><h3>Receive Your PDF</h3><p>Your book PDF arrives on your email or WhatsApp, typically within a few hours of confirming payment.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="inner">
+    <p class="sec-label">Reader Reviews</p>
+    <h2 class="sec-title reveal">What Readers Are Saying</h2>
+    <div class="sec-line"></div>
+    <div class="testi-carousel">
+      <div class="testi-track" id="testi-track"></div>
+    </div>
+    <div class="testi-controls">
+      <button class="testi-prev" onclick="testiMove(-1)">&#8592;</button>
+      <div class="testi-dots" id="testi-dots"></div>
+      <button class="testi-next" onclick="testiMove(1)">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div>
+        <div class="author-image-wrap">
+          <div class="author-image-box">
+            <img id="author-img" src="" alt="Felicia Adebayo" style="display:none"/>
+            <div class="author-placeholder" id="author-placeholder">
+              <span>✍️</span>
+              <span class="upload-hint">Admin: upload<br>your photo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <p class="sec-label">The Author</p>
+        <h2 class="sec-title">Felicia Adebayo</h2>
+        <p class="author-since">✦ Writing Since Secondary School</p>
+        <div class="sec-line"></div>
+        <p>I didn't start writing in a fancy study or after a prestigious degree. I started in a secondary school classroom, with a notebook and feelings too big to keep inside — and that is where the magic was born.</p>
+        <p>Everything I write comes from a real place: the struggles, the heartbreaks, the quiet victories, and the desperate prayers at 2am. Whether it is a romance that mirrors your own love story, or a self-help guide that actually makes sense of your life — I write what people need to hear.</p>
+        <p>My purpose is simple: to put the right words in your hands at exactly the right time. Because I believe one book, read at the right moment, can completely redirect a person's life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="inner">
+    <p class="sec-label">FAQ</p>
+    <h2 class="sec-title reveal">Your Questions, Answered</h2>
+    <div class="sec-line"></div>
+    <div id="faq-list"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Felicia Adebayo</div>
+  <div class="footer-links">
+    <a href="#books">Browse Books</a>
+    <a href="#how">How It Works</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <p>© 2025 Felicia Adebayo · All rights reserved · Proudly Nigerian</p>
+  <p style="margin-top:8px;">Payment details are shared privately after order confirmation.</p>
+</footer>
+
+<a class="sticky-cta" href="#books">Get a Book →</a>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">&#215;</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN OVERLAY -->
+<div class="admin-login-overlay" id="admin-login-overlay">
+  <div class="admin-login-box">
+    <div style="font-size:2.5rem;margin-bottom:16px">🔐</div>
+    <h2>Admin Access</h2>
+    <p>Enter your password to manage books, prices, and site content.</p>
+    <input type="password" id="admin-pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')doAdminLogin()"/>
+    <button class="admin-login-btn" onclick="doAdminLogin()">Login to Admin Panel</button>
+    <div class="login-error" id="login-error">Wrong password. Try again.</div>
+    <br>
+    <button class="admin-cancel-btn" onclick="closeAdminLogin()">Cancel</button>
+  </div>
+</div>
+
+<!-- ADMIN BAR (shown when logged in) -->
+<div class="admin-bar" id="admin-bar">
+  <div class="admin-bar-left">
+    <span class="admin-badge">🔧 Admin Mode</span>
+    <button class="admin-btn" onclick="openAdminPanel('books')">📚 Manage Books</button>
+    <button class="admin-btn" onclick="openAdminPanel('photo')">📷 My Photo</button>
+    <button class="admin-btn" onclick="openAdminPanel('countdown')">⏳ Countdown</button>
+    <button class="admin-btn" onclick="openAdminPanel('password')">🔑 Change Password</button>
+  </div>
+  <button class="admin-btn danger" onclick="adminLogout()">Logout</button>
+</div>
+
+<!-- ADMIN OVERLAY BG -->
+<div class="admin-overlay-bg" id="admin-overlay-bg" onclick="closeAdminPanel()"></div>
+
+<!-- ADMIN PANEL DRAWER -->
+<div class="admin-panel" id="admin-panel">
+  <div class="admin-panel-header">
+    <h2 id="admin-panel-title">Admin Panel</h2>
+    <button class="admin-panel-close" onclick="closeAdminPanel()">✕ Close</button>
+  </div>
+  <div class="admin-panel-body" id="admin-panel-body"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   DEFAULT DATA (used only on first load, then overridden
+   by anything you save in the admin panel)
+   ═══════════════════════════════════════════════════════ */
+const DEFAULT_BOOKS = [
+  {id:'b1',title:'Awaken Your Power',genre:'Self-Help',price:2500,oldPrice:null,badge:'Bestseller',emoji:'📘',desc:'A no-nonsense guide to unlocking your full potential, silencing self-doubt, and building the version of yourself you have always known you could be. Life-changing from chapter one.',image:''},
+  {id:'b2',title:'The 5AM Mindset',genre:'Self-Help',price:2000,oldPrice:3500,badge:'New',emoji:'⚡',desc:'Transform your mornings, transform your life. Learn the daily habits of high achievers and build a routine that produces results even when motivation runs dry.',image:''},
+  {id:'b3',title:'Heal, Then Rise',genre:'Self-Help',price:2000,oldPrice:null,badge:'',emoji:'🌿',desc:'For anyone rebuilding after heartbreak, failure, or loss. A deeply personal guide to processing pain and turning your hardest seasons into your greatest strength.',image:''},
+  {id:'b4',title:'Unplanned Love',genre:'Romance',price:2500,oldPrice:null,badge:'Fan Favourite',emoji:'💕',desc:'Two people who had given up on love entirely. One unexpected collision. A gripping love story that will keep you reading until 2am and leave your heart full.',image:''},
+  {id:'b5',title:'Between Us',genre:'Romance',price:2000,oldPrice:3000,badge:'New',emoji:'🌹',desc:'Two childhood friends. One secret kept for ten years. When they are forced to spend a weekend together, old feelings refuse to stay buried and everything changes.',image:''},
+];
+
+const DEFAULT_SETTINGS = {
+  showCountdown: true,
+  countdownDate: '2025-12-31T23:59:59',
+  countdownLabel: '⏳ Special Offer Ends In',
+  countdownOffer: 'Get any book at this discounted price before it goes up!',
+  authorPhoto: '',
+};
+
+const STATIC = {
+  whatsapp:      '2348143806599',
+  bank_name:     'United Bank for Africa (UBA)',
+  bank_account:  '2378051811',
+  bank_holder:   'Felicia Kemi Adebayo',
+  opay_number:   '08111702280',
+  opay_holder:   'Felicia Kemi',
+};
+
+const TESTIMONIALS = [
+  {text:'I was sceptical about paying directly to an account, but I received my PDF within three hours and the book genuinely changed how I think about my mornings. Worth every kobo — I have already recommended it to four people.',name:'Adaeze O.',location:'Lagos, Nigeria',initial:'A',stars:5},
+  {text:'"Unplanned Love" had me staying up until 2am three nights in a row. The writing felt so close to home, so real. This is what Nigerian romance should look like. I am buying the next one the day it drops.',name:'Fatima B.',location:'Abuja, Nigeria',initial:'F',stars:5},
+  {text:'Honest, fast, and professional. I filled the form, made my transfer, and had my PDF in less than two hours. Felicia even followed up on WhatsApp to make sure I was satisfied. Bought two more books that same week.',name:'Chukwuemeka D.',location:'Port Harcourt',initial:'C',stars:5},
+  {text:'"Heal, Then Rise" found me at the worst point of my life. I cried. I laughed. I underlined almost every page. This book literally walked me through my healing. Thank you Felicia.',name:'Ngozi E.',location:'Enugu, Nigeria',initial:'N',stars:5},
+  {text:'The writing in "Awaken Your Power" is different — it speaks like a friend, not a lecturer. Practical, emotional, and genuinely useful. I will be rereading this every January.',name:'Tunde A.',location:'Ibadan, Nigeria',initial:'T',stars:5},
+];
+
+const FAQS = [
+  {q:'Is it safe to transfer money directly?',a:'Yes, absolutely. You are transferring to a real verified Nigerian bank account (UBA) or Opay number. The account holder name is shown before you confirm — just like any normal bank transfer. You can send a WhatsApp message first before paying if you prefer.'},
+  {q:'How fast will I receive my book?',a:'Most orders are fulfilled within 2 to 6 hours of payment confirmation. During busy periods it may take up to 12 hours. If you have not received your PDF within 12 hours, message us on WhatsApp and we will resolve it immediately.'},
+  {q:'What format is the book in?',a:'All books are delivered as PDF files, which you can read on your phone, tablet, or laptop. PDFs open with the free Adobe Reader app, and most modern smartphones can open them without any app at all.'},
+  {q:'Can I order more than one book?',a:'Absolutely. Just add up the prices and transfer the total. List all the titles you want in the message field of the order form and we will send each one to you.'},
+  {q:'Why are payment details not shown on the main page?',a:'To protect the account from misuse and ensure every payment is linked to a proper order. Once you fill the short form (takes under 30 seconds), all payment details are revealed instantly on the next screen.'},
+  {q:'What if I have a problem after ordering?',a:'Reach us directly on WhatsApp with your order details and we will sort it out quickly. Reader satisfaction is everything — we will always make it right.'},
+];
+
+/* ═══════════════════════════════════════════
+   STORAGE HELPERS
+   ═══════════════════════════════════════════ */
+function saveData() {
+  localStorage.setItem('fa_books', JSON.stringify(books));
+  localStorage.setItem('fa_settings', JSON.stringify(settings));
+}
+function loadData() {
+  try { books = JSON.parse(localStorage.getItem('fa_books')) || DEFAULT_BOOKS; } catch(e) { books = DEFAULT_BOOKS; }
+  try { settings = JSON.parse(localStorage.getItem('fa_settings')) || DEFAULT_SETTINGS; } catch(e) { settings = DEFAULT_SETTINGS; }
+  // merge missing default keys
+  settings = Object.assign({}, DEFAULT_SETTINGS, settings);
+}
+function getAdminPassword() { return localStorage.getItem('fa_admin_pw') || 'felicia2025'; }
+function setAdminPassword(p) { localStorage.setItem('fa_admin_pw', p); }
+
+let books = [], settings = {};
+loadData();
+
+/* ═══════════════════════════════════════════
+   RENDER BOOKS
+   ═══════════════════════════════════════════ */
+function renderBooks() {
+  const genres = [...new Set(books.map(b => b.genre))];
+  const tabsEl = document.getElementById('genre-tabs');
+  const booksEl = document.getElementById('books-container');
+  tabsEl.innerHTML = '';
+  booksEl.innerHTML = '';
+  if (!genres.length) {
+    booksEl.innerHTML = '<p style="opacity:.4;text-align:center;padding:40px;font-family:\'Playfair Display\',serif">No books yet. Add some in the Admin Panel.</p>';
+    return;
+  }
+  genres.forEach((g, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (i===0?' active':'');
+    btn.textContent = g;
+    btn.onclick = () => switchTab(g, btn);
+    tabsEl.appendChild(btn);
+    const div = document.createElement('div');
+    div.className = 'tab-content' + (i===0?' active':'');
+    div.id = 'tab-'+g;
+    const inGenre = books.filter(b=>b.genre===g);
+    inGenre.forEach(book => div.appendChild(createCard(book)));
+    booksEl.appendChild(div);
+  });
+}
+
+function createCard(book) {
+  const card = document.createElement('div');
+  card.className = 'book-card';
+  card.onclick = () => openOrderModal(book);
+  const isRomance = book.genre==='Romance';
+  const hasDisc = book.oldPrice && book.oldPrice > book.price;
+  const discPct = hasDisc ? Math.round((1-book.price/book.oldPrice)*100) : 0;
+  card.innerHTML = `
+    <div class="book-cover">
+      ${book.image ? `<img class="book-cover-img" src="${book.image}" alt="${book.title}" onerror="this.style.display='none'"/>` : ''}
+      <div class="book-cover-fallback${isRomance?' romance':''}">${book.emoji||'📖'}</div>
+      <div class="book-cover-overlay"></div>
+      <div class="book-cover-pattern"></div>
+      ${book.badge?`<div class="book-badge">${book.badge}</div>`:''}
+      ${hasDisc?`<div class="book-discount-badge">-${discPct}%</div>`:''}
+      <div class="book-title-cover">${book.title}</div>
+      <div class="book-author-cover">by Felicia Adebayo</div>
+    </div>
+    <div class="book-info">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="book-desc">${book.desc}</p>
+      <div class="book-meta">
+        <div>
+          <div class="book-price">&#8358;${Number(book.price).toLocaleString()}</div>
+          ${hasDisc?`<div class="book-price-old">&#8358;${Number(book.oldPrice).toLocaleString()}</div>`:''}
+          <div class="book-price-note">PDF &middot; Fast Delivery</div>
+        </div>
+        <button class="buy-btn">Get Book &rarr;</button>
+      </div>
+    </div>`;
+  return card;
+}
+
+function switchTab(genre, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  const el = document.getElementById('tab-'+genre);
+  if(el) el.classList.add('active');
+  btn.classList.add('active');
+}
+
+/* TESTIMONIALS */
+(function(){
+  const track=document.getElementById('testi-track');
+  const dotsEl=document.getElementById('testi-dots');
+  TESTIMONIALS.forEach((t,i)=>{
+    const slide=document.createElement('div');
+    slide.className='testi-slide';
+    slide.innerHTML=`<div class="testi-inner"><div class="testi-stars">${'&#9733;'.repeat(t.stars)}</div><p class="testi-text">${t.text}</p><div class="testi-author"><div class="testi-avatar">${t.initial}</div><div><div class="testi-name">${t.name}</div><div class="testi-loc">${t.location}</div></div></div></div>`;
+    track.appendChild(slide);
+    const dot=document.createElement('button');
+    dot.className='testi-dot'+(i===0?' active':'');
+    dot.onclick=()=>goSlide(i);
+    dotsEl.appendChild(dot);
+  });
+})();
+let tIdx=0, tAuto=setInterval(()=>testiMove(1),5500);
+function testiMove(dir){goSlide((tIdx+dir+TESTIMONIALS.length)%TESTIMONIALS.length)}
+function goSlide(idx){
+  tIdx=idx;
+  document.getElementById('testi-track').style.transform=`translateX(-${idx*100}%)`;
+  document.querySelectorAll('.testi-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  clearInterval(tAuto); tAuto=setInterval(()=>testiMove(1),5500);
+}
+
+/* FAQ */
+(function(){
+  const list=document.getElementById('faq-list');
+  FAQS.forEach(f=>{
+    const item=document.createElement('div');
+    item.className='faq-item';
+    item.innerHTML=`<div class="faq-q">${f.q}<span class="faq-icon">+</span></div><div class="faq-a">${f.a}</div>`;
+    item.querySelector('.faq-q').onclick=()=>{
+      const open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));
+      if(!open)item.classList.add('open');
+    };
+    list.appendChild(item);
+  });
+})();
+
+/* AUTHOR PHOTO */
+function applyAuthorPhoto() {
+  const img = document.getElementById('author-img');
+  const ph = document.getElementById('author-placeholder');
+  if (settings.authorPhoto) {
+    img.src = settings.authorPhoto;
+    img.style.display = 'block';
+    ph.style.display = 'none';
+  } else {
+    img.style.display = 'none';
+    ph.style.display = 'flex';
+  }
+}
+
+/* COUNTDOWN */
+function applyCountdown() {
+  const wrap = document.getElementById('countdown-wrap');
+  if (!settings.showCountdown) { wrap.style.display='none'; return; }
+  wrap.style.display='block';
+  document.getElementById('cd-label').textContent = settings.countdownLabel;
+  document.getElementById('cd-offer').textContent = settings.countdownOffer;
+  const deadline = new Date(settings.countdownDate).getTime();
+  function tick() {
+    const diff = deadline - Date.now();
+    if (diff<=0) { wrap.style.display='none'; return; }
+    document.getElementById('cd-d').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
+    document.getElementById('cd-h').textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+    document.getElementById('cd-m').textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    document.getElementById('cd-s').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+  }
+  tick(); if(window._cdInterval) clearInterval(window._cdInterval);
+  window._cdInterval=setInterval(tick,1000);
+}
+
+/* ORDER MODAL */
+let curBook=null, cMode='whatsapp';
+function openOrderModal(book) {
+  curBook=book;
+  const hasDisc=book.oldPrice&&book.oldPrice>book.price;
+  document.getElementById('modal-content').innerHTML=`
+    <div class="modal-step">
+      <div class="modal-book-info">
+        <div class="modal-book-thumb">${book.image?`<img src="${book.image}" style="width:100%;height:100%;object-fit:cover;border-radius:2px" onerror="this.style.display='none'"/>`:''}<span style="${book.image?'display:none':''}">${book.emoji||'📖'}</span></div>
+        <div>
+          <div class="modal-book-title">${book.title}</div>
+          <div class="modal-book-genre">${book.genre} &middot; by Felicia Adebayo</div>
+          <div class="modal-book-price">&#8358;${Number(book.price).toLocaleString()}${hasDisc?` <span style="text-decoration:line-through;font-size:.8rem;opacity:.4;margin-left:6px">&#8358;${Number(book.oldPrice).toLocaleString()}</span>`:''}</div>
+        </div>
+      </div>
+      <h2>Complete Your Order</h2>
+      <p class="sub">Fill this quick form. Payment details are revealed on the next screen — safe and private.</p>
+      <div class="form-group"><label>Your Full Name</label><input type="text" id="f-name" placeholder="e.g. Amaka Johnson"/></div>
+      <div class="form-group">
+        <label>Send Book To</label>
+        <div class="contact-toggle">
+          <button id="toggle-wa" class="active" onclick="setContact('whatsapp')">&#128241; WhatsApp</button>
+          <button id="toggle-em" onclick="setContact('email')">&#128140; Email</button>
+        </div>
+        <input type="text" id="f-contact" placeholder="08012345678"/>
+      </div>
+      <div class="form-group"><label>Note <span style="opacity:.35;font-size:.72rem">(optional)</span></label><input type="text" id="f-note" placeholder="e.g. Please send quickly"/></div>
+      <button class="submit-btn" onclick="proceedToPayment()">See Payment Details &rarr;</button>
+      <p class="form-note">&#128274; Your details are private and only used to deliver your book.</p>
+    </div>`;
+  cMode='whatsapp';
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>{const el=document.getElementById('f-name');if(el)el.focus();},300);
+}
+
+function setContact(mode) {
+  cMode=mode;
+  document.getElementById('toggle-wa').classList.toggle('active',mode==='whatsapp');
+  document.getElementById('toggle-em').classList.toggle('active',mode==='email');
+  const inp=document.getElementById('f-contact');
+  if(inp){inp.placeholder=mode==='whatsapp'?'08012345678':'youremail@example.com';inp.type=mode==='email'?'email':'tel';}
+}
+
+function proceedToPayment() {
+  const name=document.getElementById('f-name').value.trim();
+  const contact=document.getElementById('f-contact').value.trim();
+  const note=document.getElementById('f-note').value.trim();
+  if(!name){showToast('Please enter your full name.');return;}
+  if(!contact){showToast('Please enter your WhatsApp number or email.');return;}
+  const b=curBook;
+  const waMsg=encodeURIComponent('📚 NEW ORDER — '+b.title+'\n\nName: '+name+'\nBook: '+b.title+' ('+b.genre+')\nPrice: ₦'+Number(b.price).toLocaleString()+'\nDeliver to: '+contact+' ('+cMode+')\n'+(note?'Note: '+note+'\n':'')+'\n[Order via website]');
+  document.getElementById('modal-content').innerHTML=`
+    <div class="step2-header"><h2>Almost There!</h2><p>Hi <strong>${name.split(' ')[0]}</strong>! Pay using any method below, then tap the green button to confirm on WhatsApp.</p></div>
+    <div class="step2-body">
+      <div class="step2-summary">
+        <div class="row"><span class="key">Book</span><span class="val">${b.title}</span></div>
+        <div class="row"><span class="key">Amount</span><span class="val" style="color:var(--gold);font-family:'Playfair Display',serif;font-size:1.05rem">&#8358;${Number(b.price).toLocaleString()}</span></div>
+        <div class="row"><span class="key">Deliver To</span><span class="val">${contact}</span></div>
+      </div>
+      <div class="pay-section">
+        <h3>&#127974; Option 1 &middot; UBA Bank Transfer</h3>
+        <div class="bank-detail"><div class="lbl">Bank</div><div class="val">${STATIC.bank_name}</div></div>
+        <div class="bank-detail"><div class="lbl">Account Number</div><div class="val">${STATIC.bank_account} <button class="copy-btn" onclick="copyText('${STATIC.bank_account}','Account number copied!')">Copy</button></div></div>
+        <div class="bank-detail"><div class="lbl">Account Name</div><div class="val">${STATIC.bank_holder}</div></div>
+      </div>
+      <hr class="pay-divider"/>
+      <div class="pay-section">
+        <h3>&#128241; Option 2 &middot; Opay Transfer</h3>
+        <div class="bank-detail"><div class="lbl">Opay Number</div><div class="val">${STATIC.opay_number} <button class="copy-btn" onclick="copyText('${STATIC.opay_number}','Opay number copied!')">Copy</button></div></div>
+        <div class="bank-detail"><div class="lbl">Account Name</div><div class="val">${STATIC.opay_holder}</div></div>
+      </div>
+      <div class="pay-note">After transferring <strong>&#8358;${Number(b.price).toLocaleString()}</strong>, tap the button below. It sends your order to us automatically so we can confirm and deliver your book fast.</div>
+      <a class="wa-confirm-btn" href="https://wa.me/${STATIC.whatsapp}?text=${waMsg}" target="_blank" rel="noopener">&#128172; I Have Paid — Confirm on WhatsApp</a>
+    </div>`;
+}
+
+function closeModal(){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow='';curBook=null;}
+function handleOverlayClick(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
+
+function copyText(text, msg) {
+  if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>showToast(msg||'Copied!')).catch(()=>fbCopy(text,msg));}
+  else{fbCopy(text,msg);}
+}
+function fbCopy(text,msg){
+  const el=document.createElement('textarea');el.value=text;document.body.appendChild(el);el.select();
+  try{document.execCommand('copy');showToast(msg||'Copied!');}catch(e){}
+  document.body.removeChild(el);
+}
+function showToast(msg,dur=3000){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),dur);
+}
+
+/* ═══════════════════════════════════════════
+   ADMIN PANEL SYSTEM
+   ═══════════════════════════════════════════ */
+let adminLoggedIn=false;
+let logoClickCount=0, logoClickTimer=null;
+
+// Secret: click the logo 5 times quickly
+document.getElementById('nav-logo-click').addEventListener('click', function() {
+  logoClickCount++;
+  clearTimeout(logoClickTimer);
+  logoClickTimer = setTimeout(()=>{logoClickCount=0;},1500);
+  if(logoClickCount>=5){
+    logoClickCount=0;
+    if(adminLoggedIn){openAdminPanel('books');}
+    else{showAdminLogin();}
+  }
+});
+
+function showAdminLogin(){
+  document.getElementById('admin-login-overlay').style.display='flex';
+  document.getElementById('login-error').style.display='none';
+  document.getElementById('admin-pw-input').value='';
+  setTimeout(()=>document.getElementById('admin-pw-input').focus(),200);
+}
+function closeAdminLogin(){document.getElementById('admin-login-overlay').style.display='none';}
+
+function doAdminLogin(){
+  const pw=document.getElementById('admin-pw-input').value;
+  if(pw===getAdminPassword()){
+    adminLoggedIn=true;
+    closeAdminLogin();
+    document.getElementById('admin-bar').style.display='flex';
+    document.getElementById('main-nav').style.top='50px';
+    showToast('✅ Welcome, Felicia! Admin mode is on.');
+    openAdminPanel('books');
+  } else {
+    document.getElementById('login-error').style.display='block';
+    document.getElementById('admin-pw-input').value='';
+    document.getElementById('admin-pw-input').focus();
+  }
+}
+
+function adminLogout(){
+  adminLoggedIn=false;
+  document.getElementById('admin-bar').style.display='none';
+  document.getElementById('main-nav').style.top='0';
+  closeAdminPanel();
+  showToast('Logged out of admin mode.');
+}
+
+function openAdminPanel(section){
+  if(!adminLoggedIn)return;
+  const panel=document.getElementById('admin-panel');
+  const body=document.getElementById('admin-panel-body');
+  const bg=document.getElementById('admin-overlay-bg');
+  panel.classList.add('open');
+  bg.classList.add('show');
+  document.body.style.overflow='hidden';
+  if(section==='books') renderAdminBooks(body);
+  else if(section==='photo') renderAdminPhoto(body);
+  else if(section==='countdown') renderAdminCountdown(body);
+  else if(section==='password') renderAdminPassword(body);
+}
+function closeAdminPanel(){
+  document.getElementById('admin-panel').classList.remove('open');
+  document.getElementById('admin-overlay-bg').classList.remove('show');
+  document.body.style.overflow='';
+}
+
+/* ── ADMIN: BOOKS ── */
+function renderAdminBooks(body){
+  document.getElementById('admin-panel-title').textContent='📚 Manage Books';
+  let html=`<p style="font-size:.82rem;opacity:.5;margin-bottom:24px;line-height:1.6">Add, edit, or delete books. Upload a cover image for each book. Changes save instantly.</p>`;
+  html+=`<button class="a-save-btn" style="margin-bottom:28px;width:100%" onclick="addNewBook()">+ Add New Book</button>`;
+  books.forEach((book,idx)=>{
+    html+=`<div class="a-card" id="acard-${book.id}">
+      <div class="a-card-header">
+        <div class="a-card-title">${book.emoji||'📖'} ${book.title}</div>
+        <span class="a-card-badge">${book.genre}</span>
+      </div>
+      <div class="a-row">
+        <div class="a-group"><label>Book Title</label><input type="text" id="at-${book.id}" value="${book.title}" placeholder="Book title"/></div>
+        <div class="a-group"><label>Genre</label><input type="text" id="ag-${book.id}" value="${book.genre}" placeholder="e.g. Self-Help"/></div>
+      </div>
+      <div class="a-row">
+        <div class="a-group"><label>Price (₦)</label><input type="number" id="ap-${book.id}" value="${book.price}" placeholder="2500"/></div>
+        <div class="a-group"><label>Old Price (₦) — for discount</label><input type="number" id="aop-${book.id}" value="${book.oldPrice||''}" placeholder="Leave empty = no discount"/></div>
+      </div>
+      <div class="a-row">
+        <div class="a-group"><label>Badge Text</label><input type="text" id="ab-${book.id}" value="${book.badge||''}" placeholder="e.g. Bestseller, New…"/></div>
+        <div class="a-group"><label>Cover Emoji (fallback)</label><input type="text" id="ae-${book.id}" value="${book.emoji||'📖'}" placeholder="📖"/></div>
+      </div>
+      <div class="a-group"><label>Description</label><textarea id="ad-${book.id}" placeholder="Short book description...">${book.desc}</textarea></div>
+      <div class="a-group">
+        <label>Book Cover Image</label>
+        ${book.image ? `<div class="img-preview-wrap" id="prev-wrap-${book.id}"><img class="img-preview" src="${book.image}" alt="Cover"/><button class="img-remove-btn" onclick="removeCover('${book.id}')">&#215;</button></div>` : `<div class="img-preview-wrap" id="prev-wrap-${book.id}" style="display:none"><img class="img-preview" id="prev-${book.id}" src="" alt="Cover"/><button class="img-remove-btn" onclick="removeCover('${book.id}')">&#215;</button></div>`}
+        <div class="img-upload-area" id="upload-area-${book.id}">
+          <input type="file" accept="image/*" onchange="uploadCover('${book.id}',this)"/>
+          <div class="upload-icon">🖼️</div>
+          <div class="upload-text">Click to upload cover image</div>
+          <div class="upload-sub">JPG, PNG or WEBP &middot; Max 2MB recommended</div>
+        </div>
+        <p class="a-hint">Upload an actual image of your book cover — this replaces the emoji placeholder on the card.</p>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:4px">
+        <button class="a-save-btn" onclick="saveBook('${book.id}')">💾 Save Changes</button>
+        <button class="a-delete-btn" onclick="deleteBook('${book.id}')">🗑 Delete Book</button>
+      </div>
+    </div>`;
+  });
+  body.innerHTML=html;
+  // Hide upload areas where image already exists
+  books.forEach(book=>{
+    const area=document.getElementById('upload-area-'+book.id);
+    if(area && book.image) area.style.display='none';
+  });
+}
+
+function addNewBook(){
+  const id='b'+Date.now();
+  books.push({id,title:'New Book Title',genre:'Self-Help',price:2500,oldPrice:null,badge:'New',emoji:'📖',desc:'Enter a description for this book.',image:''});
+  saveData(); renderBooks(); renderAdminBooks(document.getElementById('admin-panel-body'));
+  showToast('New book added! Edit the details below.');
+  setTimeout(()=>{const el=document.getElementById('acard-'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},200);
+}
+
+function saveBook(id){
+  const book=books.find(b=>b.id===id);
+  if(!book)return;
+  book.title=document.getElementById('at-'+id).value.trim()||book.title;
+  book.genre=document.getElementById('ag-'+id).value.trim()||book.genre;
+  book.price=parseInt(document.getElementById('ap-'+id).value)||0;
+  const op=parseInt(document.getElementById('aop-'+id).value);
+  book.oldPrice=isNaN(op)||op<=0?null:op;
+  book.badge=document.getElementById('ab-'+id).value.trim();
+  book.emoji=document.getElementById('ae-'+id).value.trim()||'📖';
+  book.desc=document.getElementById('ad-'+id).value.trim();
+  saveData(); renderBooks();
+  showToast('✅ "'+book.title+'" saved!');
+}
+
+function deleteBook(id){
+  if(!confirm('Delete this book? This cannot be undone.'))return;
+  books=books.filter(b=>b.id!==id);
+  saveData(); renderBooks(); renderAdminBooks(document.getElementById('admin-panel-body'));
+  showToast('Book deleted.');
+}
+
+function uploadCover(id, input){
+  const file=input.files[0];
+  if(!file)return;
+  if(file.size>5*1024*1024){showToast('Image too large. Please use an image under 5MB.');return;}
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    const book=books.find(b=>b.id===id);
+    if(!book)return;
+    book.image=ev.target.result;
+    saveData(); renderBooks();
+    // Update preview
+    const wrap=document.getElementById('prev-wrap-'+id);
+    const area=document.getElementById('upload-area-'+id);
+    if(wrap){
+      let img=wrap.querySelector('img');
+      if(!img){img=document.createElement('img');img.className='img-preview';wrap.insertBefore(img,wrap.firstChild);}
+      img.src=ev.target.result;
+      wrap.style.display='inline-block';
+    }
+    if(area)area.style.display='none';
+    showToast('✅ Cover image uploaded and saved!');
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeCover(id){
+  const book=books.find(b=>b.id===id);
+  if(!book)return;
+  book.image='';
+  saveData(); renderBooks();
+  const wrap=document.getElementById('prev-wrap-'+id);
+  const area=document.getElementById('upload-area-'+id);
+  if(wrap)wrap.style.display='none';
+  if(area)area.style.display='block';
+  showToast('Cover image removed.');
+}
+
+/* ── ADMIN: PHOTO ── */
+function renderAdminPhoto(body){
+  document.getElementById('admin-panel-title').textContent='📷 My Author Photo';
+  body.innerHTML=`
+    <p style="font-size:.82rem;opacity:.5;margin-bottom:28px;line-height:1.6">Upload your photo to display in the "About" section. Only you can see this option.</p>
+    ${settings.authorPhoto
+      ? `<div class="img-preview-wrap" id="photo-preview-wrap"><img class="img-preview" src="${settings.authorPhoto}" style="max-height:260px;width:auto;border-radius:4px"/><button class="img-remove-btn" onclick="removeAuthorPhoto()">&#215;</button></div>`
+      : `<div id="photo-preview-wrap" style="display:none"></div>`
+    }
+    <div class="img-upload-area" id="photo-upload-area" style="${settings.authorPhoto?'display:none':''}">
+      <input type="file" accept="image/*" onchange="uploadAuthorPhoto(this)"/>
+      <div class="upload-icon">🤳</div>
+      <div class="upload-text">Click to upload your photo</div>
+      <div class="upload-sub">JPG or PNG &middot; A clear headshot works best</div>
+    </div>
+    <p class="a-hint" style="margin-top:16px">Your photo will appear in the About section where visitors can see who they are buying from. This builds trust!</p>`;
+}
+
+function uploadAuthorPhoto(input){
+  const file=input.files[0];
+  if(!file)return;
+  if(file.size>5*1024*1024){showToast('Image too large. Please use under 5MB.');return;}
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    settings.authorPhoto=ev.target.result;
+    saveData(); applyAuthorPhoto();
+    const wrap=document.getElementById('photo-preview-wrap');
+    const area=document.getElementById('photo-upload-area');
+    if(wrap){
+      wrap.innerHTML=`<img class="img-preview" src="${ev.target.result}" style="max-height:260px;width:auto;border-radius:4px"/><button class="img-remove-btn" onclick="removeAuthorPhoto()">&#215;</button>`;
+      wrap.style.display='inline-block';
+    }
+    if(area)area.style.display='none';
+    showToast('✅ Author photo saved!');
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeAuthorPhoto(){
+  settings.authorPhoto='';
+  saveData(); applyAuthorPhoto();
+  const wrap=document.getElementById('photo-preview-wrap');
+  const area=document.getElementById('photo-upload-area');
+  if(wrap)wrap.style.display='none';
+  if(area)area.style.display='block';
+  showToast('Photo removed.');
+}
+
+/* ── ADMIN: COUNTDOWN ── */
+function renderAdminCountdown(body){
+  document.getElementById('admin-panel-title').textContent='⏳ Countdown Timer';
+  body.innerHTML=`
+    <p style="font-size:.82rem;opacity:.5;margin-bottom:28px;line-height:1.6">Control the countdown timer on your homepage. Use it to create urgency and boost sales during special offers.</p>
+    <div class="a-toggle-row">
+      <span class="a-toggle-label">Show Countdown Timer</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="cd-toggle" ${settings.showCountdown?'checked':''} onchange="toggleCountdown(this.checked)"/>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div id="cd-settings" style="${settings.showCountdown?'':'opacity:.4;pointer-events:none'}">
+      <div class="a-group"><label>Countdown Deadline (Date &amp; Time)</label><input type="datetime-local" id="cd-date" value="${settings.countdownDate}"/><p class="a-hint">The timer will automatically disappear when this date passes.</p></div>
+      <div class="a-group"><label>Timer Label</label><input type="text" id="cd-lbl" value="${settings.countdownLabel}" placeholder="e.g. ⏳ Offer Ends In"/></div>
+      <div class="a-group"><label>Offer Message</label><input type="text" id="cd-msg" value="${settings.countdownOffer}" placeholder="Describe your limited-time offer"/></div>
+    </div>
+    <button class="a-save-btn" style="margin-top:8px" onclick="saveCountdown()">💾 Save Countdown Settings</button>`;
+}
+
+function toggleCountdown(on){
+  settings.showCountdown=on;
+  const el=document.getElementById('cd-settings');
+  if(el)el.style.cssText=on?'':'opacity:.4;pointer-events:none';
+  saveData(); applyCountdown();
+}
+
+function saveCountdown(){
+  settings.countdownDate=document.getElementById('cd-date').value||settings.countdownDate;
+  settings.countdownLabel=document.getElementById('cd-lbl').value.trim()||settings.countdownLabel;
+  settings.countdownOffer=document.getElementById('cd-msg').value.trim();
+  saveData(); applyCountdown();
+  showToast('✅ Countdown settings saved!');
+}
+
+/* ── ADMIN: PASSWORD ── */
+function renderAdminPassword(body){
+  document.getElementById('admin-panel-title').textContent='🔑 Change Password';
+  body.innerHTML=`
+    <p style="font-size:.82rem;opacity:.5;margin-bottom:28px;line-height:1.6">Change your admin password. Your current password is required. Keep your new password safe!</p>
+    <div class="a-group"><label>Current Password</label><input type="password" id="pw-current" placeholder="Enter current password"/></div>
+    <div class="a-group"><label>New Password</label><input type="password" id="pw-new" placeholder="Enter new password (min 6 characters)"/></div>
+    <div class="a-group"><label>Confirm New Password</label><input type="password" id="pw-confirm" placeholder="Type new password again"/></div>
+    <button class="a-save-btn" onclick="changePassword()">🔑 Update Password</button>
+    <p class="a-hint" style="margin-top:16px">&#9888;&#65039; Remember: to enter admin mode, click the "Felicia Adebayo" logo 5 times quickly at the top of the page.</p>`;
+}
+
+function changePassword(){
+  const cur=document.getElementById('pw-current').value;
+  const nw=document.getElementById('pw-new').value;
+  const conf=document.getElementById('pw-confirm').value;
+  if(cur!==getAdminPassword()){showToast('Current password is wrong. Try again.');return;}
+  if(nw.length<6){showToast('New password must be at least 6 characters.');return;}
+  if(nw!==conf){showToast('New passwords do not match. Try again.');return;}
+  setAdminPassword(nw);
+  showToast('✅ Password changed successfully!');
+  document.getElementById('pw-current').value='';
+  document.getElementById('pw-new').value='';
+  document.getElementById('pw-confirm').value='';
+}
+
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeAdminPanel();}});
+
+/* INIT */
+renderBooks();
+applyAuthorPhoto();
+applyCountdown();
+</script>
+</body>
+</html>
